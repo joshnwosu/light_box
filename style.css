@@ -1,0 +1,252 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+  -moz-outline: none;
+  user-select: none !important;
+  -moz-user-select: none !important;
+  list-style: none;
+}
+
+body {
+  background-color: #eee;
+  font-family: 'Lato','ubuntu',sans-serif;
+  line-height: 1;
+  height: 100%;
+  width: 100%;
+  /* overflow: hidden; */
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.container {
+  width: 900px;
+  margin: auto;
+}
+.wrapper h1 {
+  font-weight: 400;
+  margin: 50px 0;
+  text-align: center;
+  color: rgba(0,0,0,0.5)
+}
+
+.grid-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:;
+  justify-content: space-between;
+}
+
+.img-grid {
+  width: 32%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 5px;
+  margin-bottom: 1.33%;
+  background: #FFFFFF;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-grid img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: .3s ease;
+}
+.img-grid p {
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+  background-color: rgba(0,0,0,0.6);
+  padding: 10px 10px;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Lato';
+  transition: .3s ease-in-out;
+  transform: scale(.5);
+  opacity: 0;
+}
+
+.img-grid:hover p {
+  transform: scale(.9);
+  opacity: 1;
+}
+
+.grid-container:hover img {
+  filter: grayscale(1);
+}
+
+.img-grid:hover img {
+  filter: grayscale(0);
+}
+
+
+/* modal */
+
+.modal {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.9);
+  top: 0;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.modal .wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 700px;
+  height: auto;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  /* border: 1px solid red; */
+}
+
+.slider {
+  width: 100%;
+  /* border: 1px solid red; */
+  position: relative;
+  height: 450px;
+  background-color: #232323;
+  padding: 10px;
+
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  object-position: center top;
+  left: 0;
+  top: 0;
+  transition: 1s ease-in-out;
+  transform: scale(.98);
+}
+
+.modal .close-btn {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  color: rgba(255,255,255,0.7);
+  z-index: 9;
+  border: none;
+  padding: 10px 20px;
+  background-color: #232323;
+  cursor: pointer;
+
+}
+.modal .pagination {
+  width: 100%;
+  height: auto;
+  position: relative;
+  /* background-color: red; */
+}
+
+
+.pagination span {
+  width: 10px;
+  height: 10px;
+  background-color: #eee;
+  display: inline-block;
+  margin: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.pagination span:hover {
+  background-color: grey;
+}
+
+.wrapper button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 30px 20px;
+  border: none;
+  background-color: #232323;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  transition: .3s ease;
+}
+.next-btn {
+  right: -50%;
+}
+.prev-btn {
+  left: -50%;
+}
+
+.modal .wrapper:hover .next-btn {
+  right: 0;
+}
+
+.modal .wrapper:hover .prev-btn {
+  left: 0;
+}
+
+.caption {
+  /* background-color: red; */
+  display: inline-block;
+  color: rgba(255,255,255,0.7);
+  padding: 0 20px;
+  position: absolute;
+  bottom: .5%;
+  right: 0;
+}
+
+.title {
+  width: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: rgba(255,255,255,0.7);
+  text-align: left;
+  padding: 0 20px;
+  transition: all .3s ease;
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 90%;
+  }
+  .img-grid {
+    width: 100%;
+  }
+  .modal .wrapper {
+    width: 80%;
+  }
+  .slider {
+    height: 400px;
+  }
+  .wrapper button {
+    padding: 20px 10px;
+  }
+ .modal .close-btn {
+    top: 5%
+  }
+  .caption, .title {
+    position: relative;
+  }
+  .title {
+    float: left;
+  }
+  .caption {
+    float: right;
+  }
+}
